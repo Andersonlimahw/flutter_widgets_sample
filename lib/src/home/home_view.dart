@@ -8,17 +8,16 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var listData = List<String>.generate(20, (i) => 'Item $i');
     return Scaffold(
         appBar: AppBar(
           title: const Text('Tasks'),
         ),
-        body: const Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TaskWidget(),
-            TaskWidget(),
-            TaskWidget(),
-          ],
+        body: ListView.builder(
+          itemCount: listData.length,
+          itemBuilder: (context, index) {
+            return TaskWidget(name: listData[index]);
+          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
