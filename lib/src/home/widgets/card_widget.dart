@@ -13,12 +13,8 @@ class TaskWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
-      child: Stack(
+      child: Column(
         children: [
-          Container(
-            height: 100,
-            color: Colors.blue,
-          ),
           Container(
             color: Colors.white,
             height: 100,
@@ -52,6 +48,10 @@ class TaskWidget extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Container(
+            height: 40,
+            color: Colors.blue,
           ),
         ],
       ),

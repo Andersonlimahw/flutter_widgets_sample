@@ -10,21 +10,22 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     var listData = List<String>.generate(20, (i) => 'Item $i');
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Tasks'),
-        ),
-        body: ListView.builder(
-          itemCount: listData.length,
-          itemBuilder: (context, index) {
-            return TaskWidget(name: listData[index]);
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-          backgroundColor: Colors.green,
-          child: const Icon(Icons.navigation),
-        ));
+      appBar: AppBar(
+        title: const Text('Tasks'),
+      ),
+      body: ListView.builder(
+        itemCount: listData.length,
+        itemBuilder: (context, index) {
+          return TaskWidget(name: listData[index]);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
+    );
   }
 }
