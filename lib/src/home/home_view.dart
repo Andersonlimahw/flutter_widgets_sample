@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_sample/src/home/widgets/card_widget.dart';
+import 'package:flutter_widgets_sample/src/home/widgets/task_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
       body: ListView.builder(
         itemCount: listData.length,
         itemBuilder: (context, index) {
-          return TaskWidget(name: listData[index]);
+          return TaskWidgetItem(name: listData[index]);
         },
       ),
       floatingActionButton: FloatingActionButton(
