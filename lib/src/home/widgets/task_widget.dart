@@ -66,12 +66,31 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                 height: 40,
                 color: Colors.blue,
               ),
-              Text(
-                level.toString(),
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    backgroundColor: Colors.black),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 200, //222093
+                      alignment: Alignment.centerLeft,
+                      child: LinearProgressIndicator(
+                        value: level / 10,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Text(
+                      level.toString(),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          backgroundColor: Colors.black),
+                    ),
+                  ),
+                ],
               )
             ],
           ),

@@ -11,6 +11,7 @@ class HomeView extends StatelessWidget {
     var listData = List<String>.generate(20, (i) => 'Item $i');
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         title: const Text('Tasks'),
       ),
       body: ListView.builder(
