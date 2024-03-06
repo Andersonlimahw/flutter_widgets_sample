@@ -20,6 +20,7 @@ class HomeView extends StatelessWidget {
           return TaskWidgetItem(
             name: listData[index],
             imageUrl: 'https://source.unsplash.com/random/300×300',
+            dificulty: index,
           );
         },
       ),

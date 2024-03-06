@@ -6,10 +6,12 @@ class TaskWidgetItem extends StatefulWidget {
     super.key,
     required this.name,
     required this.imageUrl,
+    required this.dificulty,
   });
 
   final String name;
   final String imageUrl;
+  final int dificulty;
 
   @override
   State<TaskWidgetItem> createState() => _TaskWidgetItemState();
@@ -65,7 +67,10 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                           .map(
                             (e) => Icon(
                               e,
-                              color: Colors.blue,
+                              size: 16,
+                              color: widget.dificulty > 2
+                                  ? Colors.blue
+                                  : Colors.blue[100],
                             ),
                           )
                           .toList(),
@@ -104,7 +109,9 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                       color: Colors.blue,
                       alignment: Alignment.centerLeft,
                       child: LinearProgressIndicator(
-                        value: level / 10,
+                        value: (widget.dificulty > 0)
+                            ? (level / widget.dificulty) / 10
+                            : 1,
                         color: Colors.white,
                       ),
                     ),
