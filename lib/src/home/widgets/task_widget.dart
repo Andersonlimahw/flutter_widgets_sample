@@ -22,7 +22,7 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Container(
@@ -39,9 +39,12 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                   height: 100,
                   width: 100,
                   color: Colors.black26,
-                  child: Image.network(
-                    widget.imageUrl,
-                    fit: BoxFit.cover,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      widget.imageUrl,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Column(
@@ -106,8 +109,13 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 200,
-                      color: Colors.blue,
                       alignment: Alignment.centerLeft,
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ),
+                      ),
                       child: LinearProgressIndicator(
                         value: (widget.dificulty > 0)
                             ? (level / widget.dificulty) / 10
@@ -119,7 +127,7 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                   Padding(
                     padding: const EdgeInsets.all(12),
                     child: Text(
-                      level.toString(),
+                      'Level: $level',
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
