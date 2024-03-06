@@ -17,14 +17,17 @@ class HomeView extends StatelessWidget {
       body: ListView.builder(
         itemCount: listData.length,
         itemBuilder: (context, index) {
-          return TaskWidgetItem(name: listData[index]);
+          return TaskWidgetItem(
+            name: listData[index],
+            imageUrl: 'https://source.unsplash.com/random/300×300',
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Add your onPressed code here!
         },
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
         child: const Icon(Icons.navigation),
       ),
     );

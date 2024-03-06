@@ -5,9 +5,11 @@ class TaskWidgetItem extends StatefulWidget {
   const TaskWidgetItem({
     super.key,
     required this.name,
+    required this.imageUrl,
   });
 
   final String name;
+  final String imageUrl;
 
   @override
   State<TaskWidgetItem> createState() => _TaskWidgetItemState();
@@ -35,14 +37,40 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                   height: 100,
                   width: 100,
                   color: Colors.black26,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  width: 200,
-                  child: Text(
-                    widget.name,
-                    overflow: TextOverflow.ellipsis,
+                  child: Image.network(
+                    widget.imageUrl,
+                    fit: BoxFit.cover,
                   ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 200,
+                      child: Text(
+                        widget.name,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Icons.star,
+                        Icons.star,
+                        Icons.star,
+                        Icons.star,
+                        Icons.star
+                      ]
+                          .map(
+                            (e) => Icon(
+                              e,
+                              color: Colors.blue,
+                            ),
+                          )
+                          .toList(),
+                    )
+                  ],
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -72,7 +100,8 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      width: 200, //222093
+                      width: 200,
+                      color: Colors.blue,
                       alignment: Alignment.centerLeft,
                       child: LinearProgressIndicator(
                         value: level / 10,
