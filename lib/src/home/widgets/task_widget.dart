@@ -1,17 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_sample/src/home/widgets/task_dificulty_widget.dart';
+
+import 'package:flutter_widgets_sample/src/home/widgets/task_image_widget.dart';
+import 'package:flutter_widgets_sample/src/home/widgets/task_level_widget.dart';
+import 'package:flutter_widgets_sample/src/home/widgets/task_name_widget.dart';
 
 class TaskWidgetItem extends StatefulWidget {
   const TaskWidgetItem({
     super.key,
     required this.name,
     required this.imageUrl,
-    required this.dificulty,
+    required this.difficulty,
   });
 
   final String name;
   final String imageUrl;
-  final int dificulty;
+  final int difficulty;
 
   @override
   State<TaskWidgetItem> createState() => _TaskWidgetItemState();
@@ -23,6 +29,14 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 2,
+          blurRadius: 7,
+          offset: const Offset(0, 3),
+        ),
+      ]),
       child: Column(
         children: [
           Container(
@@ -35,61 +49,28 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.black26,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      widget.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                TaskImageWidget(imageUrl: widget.imageUrl),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      width: 200,
-                      child: Text(
-                        widget.name,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Icons.star,
-                        Icons.star,
-                        Icons.star,
-                        Icons.star,
-                        Icons.star
-                      ]
-                          .map(
-                            (e) => Icon(
-                              e,
-                              size: 16,
-                              color: widget.dificulty > 2
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                          )
-                          .toList(),
-                    )
+                    TaskNameWidget(name: widget.name),
+                    TaskDifficultyWidget(difficulty: widget.difficulty),
                   ],
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      level++;
-                    });
-                  },
-                  child: const Icon(
-                    Icons.arrow_upward_rounded,
-                    size: 16,
-                    color: Colors.white,
+                Container(
+                  color: Colors.white,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        level++;
+                      });
+                    },
+                    child: const Icon(
+                      Icons.arrow_upward_rounded,
+                      size: 16,
+                      color: Colors.blue,
+                    ),
                   ),
                 ),
               ],
@@ -99,43 +80,10 @@ class _TaskWidgetItemState extends State<TaskWidgetItem> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 40,
+                height: 20,
                 color: Colors.blue,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 200,
-                      alignment: Alignment.centerLeft,
-                      decoration: const BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(4),
-                        ),
-                      ),
-                      child: LinearProgressIndicator(
-                        value: (widget.dificulty > 0)
-                            ? (level / widget.dificulty) / 10
-                            : 1,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Text(
-                      'Level: $level',
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          backgroundColor: Colors.black),
-                    ),
-                  ),
-                ],
-              )
+              TaskLevelWidget(difficulty: widget.difficulty, level: level),
             ],
           ),
         ],
