@@ -42,7 +42,7 @@ class _HomeViewState extends State<HomeView> {
           });
         },
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.remove_red_eye),
       ),
     );
   }

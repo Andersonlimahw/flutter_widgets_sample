@@ -11,6 +11,10 @@ class TaskNameWidget extends StatelessWidget {
       child: Text(
         name,
         overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
