@@ -36,7 +36,7 @@
 
 # Flutter: Criando uma aplicativo
 
-O Curso ensina o básico de Flutter para iniciantes que possuem apenas Dart como conhecimento prévio. Nesse curso estaremos explorando os conceitos de Widgets, Especificamente os Widgets Básicos do catalogo disponivel na documentação do flutter, assim como aprender o que é e como usar Stateless e Stateful Widgets.
+O Curso disponibilizado pela empresa alura ensina o básico de Flutter para iniciantes que possuem apenas Dart como conhecimento prévio. Nesse curso estaremos explorando os conceitos de Widgets, Especificamente os Widgets Básicos do catalogo disponivel na documentação do flutter, assim como aprender o que é e como usar Stateless e Stateful Widgets.
 
 ## 🔨 Projeto: Organizador de Tarefas
 
@@ -90,5 +90,3 @@ Esse curso faz parte da [formação de Flutter da Alura](https://cursos.alura.co
 - Github: [@andersonlimahw](https://github.com/andersonlimahw)
 - LinkedIn: [@andersonlimahw](https://linkedin.com/in/andersonlimahw)
 
-## ⭐ Show your support
-give a ⭐ if this project helped you!
